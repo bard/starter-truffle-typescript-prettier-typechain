@@ -1,0 +1,50 @@
+{
+  "name": "starter-truffle-typescript-prettier-typechain",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "run-s clean:contracts compile:contracts generate-types",
+    "build:watch": "nodemon -e sol --exec 'run-s build'",
+    "test": "truffle test --debug",
+    "test:watch": "nodemon -w test -w contracts -e ts,js,sol --exec 'run-s test'",
+    "deploy": "run-s clean:migrations compile:migrations migrate",
+    "clean:contracts": "rimraf build/contracts",
+    "clean:migrations": "rimraf build/migrations",
+    "compile:contracts": "truffle compile",
+    "compile:migrations": "tsc -p ./tsconfig.migrate.json",
+    "migrate": "truffle migrate",
+    "generate-types": "typechain --target=truffle-v5 'build/contracts/*.json'",
+    "typecheck": "tsc --noEmit",
+    "start:localchain": "truffle develop",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@typechain/truffle-v5": "^8.0.0",
+    "@types/bn.js": "^5.1.0",
+    "@types/chai": "^4.3.1",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/mocha": "^9.1.0",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "chai-bn": "^0.3.1",
+    "expect": "^27.5.1",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "rimraf": "^3.0.2",
+    "truffle": "^5.5.10",
+    "ts-node": "^10.7.0",
+    "typechain": "^8.0.0",
+    "typescript": "^4.6.3",
+    "web3": "^1.7.3",
+    "web3-core": "^1.7.3",
+    "web3-eth-contract": "^1.7.3",
+    "web3-utils": "^1.7.3"
+  },
+  "lint-staged": {
+    "*.{ts,sol}": "prettier --write"
+  }
+}
