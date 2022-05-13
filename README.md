@@ -15,6 +15,7 @@ A `truffle`-based Solidity development starter optimized for tight feedback loop
 
 1. run `yarn start:localchain` (runs `truffle`'s development blockchain)
 1. run `yarn build:watch` (rebuilds types whenever Solidity sources change)
+1. run `yarn deploy` (deploys the contracts to the development blockchain)
 1. run `yarn test:watch` (re-runs tests whenever tests or contracts change)
 1. after creating a contract and a migration, run `yarn deploy` (transpiles migrations and runs them)
 
